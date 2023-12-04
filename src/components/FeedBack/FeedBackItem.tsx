@@ -11,7 +11,7 @@ const FeedBackItem = ({ persons }: FeedBackItemProps) => {
     for (let i = 0; i < fullStarCount; i++) {
       resultStar.push(
         <embed
-          src="../../public/icons/full-star.svg"
+          src="/icons/full-star.svg"
           type="image/jpg"
           className="w-[24px] h-[22px] mr-1"
         ></embed>
@@ -19,7 +19,7 @@ const FeedBackItem = ({ persons }: FeedBackItemProps) => {
     }
     if (rating % 1 !== 0) { resultStar.push(
       <embed
-        src="../../public/icons/half-star.svg"
+        src="/icons/half-star.svg"
         type="image/jpg"
         className="w-[24px] h-[22px] mr-1"
       ></embed>);

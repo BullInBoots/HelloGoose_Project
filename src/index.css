@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .nav-active {
+        border-bottom: 4px solid theme(colors.secondary);
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 256px);
+        grid-template-rows: repeat(2, 230px);
+        row-gap: 32px;
+        justify-content: space-between;
+        grid-auto-flow: row;
+    }
+}
