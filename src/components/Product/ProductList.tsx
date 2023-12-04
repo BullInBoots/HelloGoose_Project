@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ProductType } from "../../types/ProductType";
 import ProductFiltered from "./ProductFiltered";
 
 interface ProductListProps {
   listName: string;
   data: ProductType[];
-  filterCategory: string;
+  productCategory: string;
 }
 
-const ProductList = ({ listName, data, filterCategory }: ProductListProps) => {
-  
-  const [productList, setProductList] = useState(data);
-  
-  useEffect(() => {
-    console.log("hello");
-  }, [productList]);
-  
+const ProductList = ({ listName, data, productCategory }: ProductListProps) => {
   const filterByPriceAscending = (data: ProductType[]) => {
     return data.sort((itemA: ProductType, itemB: ProductType) => {
       return itemA.price - itemB.price;
@@ -28,28 +21,26 @@ const ProductList = ({ listName, data, filterCategory }: ProductListProps) => {
     });
   };
 
+  const filterByCategory = (data: ProductType[]) => {
+    return data.filter((product) => {
+      return product.category == productCategory;
+    });
+  }
+  
+  const [productList, setProductList] = useState<ProductType[]>(filterByCategory(data));
+  const [selectSort, setSelectSort] = useState("priceLowToHigh");
+  
+
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const mode = e.target.value;
+    setSelectSort(mode);
     if (mode == "priceHighToLow") {
       setProductList(filterByPriceDescending(productList));
-      console.log(mode);
-      console.log(
-        productList.map((product) => {
-          return product;
-        })
-      );
-    }
-    if (mode == "priceLowToHigh") {
+    } else if (mode == "priceLowToHigh") {
       setProductList(filterByPriceAscending(productList));
-      console.log(mode);
-      console.log(
-        productList.map((product) => {
-          return product;
-        })
-      );
     }
   };
-
+  
   return (
     <>
       <div className="flex justify-between items-center my-8">
@@ -63,27 +54,18 @@ const ProductList = ({ listName, data, filterCategory }: ProductListProps) => {
             SHOWING 8 of PRODUCT_LENGTH
           </p>
           <button
-            onClick={() => {
-              setProductList(filterByPriceAscending(productList));
-              console.log('button');
-              console.log(productList);
-            }}
             className="bg-secondary text-white"
           >
             Free Shipping
           </button>
-          <select
-            onChange={onChangeHandler}
-            id=""
-            defaultValue="priceLowToHigh"
-          >
+          <select onChange={onChangeHandler} id="" defaultValue={selectSort}>
             <option value="priceLowToHigh">Price : Low to High</option>
             <option value="priceHighToLow">Price : High to Low</option>
           </select>
         </div>
       </div>
       {/* Product Filter Output */}
-      <div className='w-full h-[492px] product-grid'>
+      <div className="w-full h-[492px] product-grid">
         <ProductFiltered data={productList} />
       </div>
     </>
