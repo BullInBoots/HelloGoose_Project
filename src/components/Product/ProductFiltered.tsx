@@ -7,16 +7,12 @@ interface ProductFilteredProps {
 }
 
 const ProductFiltered = ({data}: ProductFilteredProps) => {
-  console.log({data});
-
-  const productFilteredList = data.map((item) => {
-    return <ProductItem item={item}/>
+    const productFilteredList = data.map((item) => {
+    return <ProductItem key={item.id} item={item}/>
   });
 
   return (
-    <div className='w-full h-[492px] product-grid'>
-      {productFilteredList}
-    </div>
+    productFilteredList
   )
 }
 
