@@ -13,6 +13,7 @@ import Cart from './pages/Cart.tsx';
 import Account from './pages/Account.tsx';
 import BoardGame from './pages/BoardGame.tsx';
 import ProductDetail from './pages/ProductDetail.tsx';
+import ShippingDetails from './pages/ShippingDetails.tsx';
 
 const router = createBrowserRouter([
   {
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
   },
   {
     path: "cart",
-    element: <Cart/>,
+    element: <Cart user={JSON.parse(localStorage.getItem('user'))}/>,
   },
   {
     path: "account",
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
   {
     path: ":category/product",
     element: <ProductDetail />
+  },
+  {
+    path: "details",
+    element: <ShippingDetails/>
   }
 ]);
 

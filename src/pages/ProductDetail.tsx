@@ -5,8 +5,8 @@ import { UserAccountType } from '../types/UserAccountType';
 import {mockUpUserData} from '../../public/data/mockUpUserData'
 import { mockUpProduct } from '../../public/data/mockUpProduct';
 interface ProductDetailProps {
-  productList: ProductType[];
-  user: UserAccountType; 
+  productList?: ProductType[];
+  user?: UserAccountType; 
 }
 
 const ProductDetail = ({productList=mockUpProduct, user=mockUpUserData}: ProductDetailProps) => {

@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProductType } from "../../types/ProductType";
 import QuantityButton from "../QuantityButton";
+import { UserAccountType } from "../../types/UserAccountType";
 
 interface CartItemProps {
+  user: UserAccountType;
+  index: number;
   product: ProductType;
   quantity: number;
   additionalRequest?: string;
@@ -17,9 +20,13 @@ const backgroundImageStyle = (imgUrl: string) => {
   };
 };
 
-const CartItem = ({ product, quantity, additionalRequest }: CartItemProps) => {
+const CartItem = ({user, index, product, quantity, additionalRequest }: CartItemProps) => {
   const [productQuantity, setProductQuantity] = useState(quantity);
-
+  useEffect(() => {
+    user.pendingCart[index].quantity = productQuantity;
+    localStorage.setItem('user', JSON.stringify(user));
+  }, [productQuantity]);
+  
   return (
     <>
     <div className="flex max-w-[1140px] h-[120px] justify-between mx-auto">

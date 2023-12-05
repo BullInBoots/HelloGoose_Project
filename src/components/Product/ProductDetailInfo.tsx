@@ -23,18 +23,18 @@ const ProductDetailInfo = ({ item, user }: ProductDetailInfoProps) => {
   };
 
   const sumbitHandler = () => {
-    // change button style
-    //set data to userAccount
-    user.pendingCart.push({
+    const userPendingCart = user.pendingCart;
+    userPendingCart.push({
       product: item,
       quantity: itemCount,
-      additionalRequest: additionalRequest
+      additionalRequest: additionalRequest,
     });
-    // to set data to localStorage I must create userData at Signin page first
+    localStorage.setItem('user', JSON.stringify(user));
+    // TODO change button style
   }
 
   return (
-    <div className="flex gap-[92px] w-fit mx-auto py-[98px]">
+    <div className="flex gap-[92px]  max-w-[1140px] mx-auto py-[98px]">
       <div>
         <div
           className="w-[544px] h-[420px]"

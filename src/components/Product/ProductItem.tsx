@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 import { ProductType } from "../../types/ProductType";
 import { Link } from "react-router-dom";
+import { UserAccountType } from "../../types/UserAccountType";
 interface ProductItemProps {
   item: ProductType;
 }
 
 const ProductItem = ({ item }: ProductItemProps) => {
   const [isFavorite, setFavorite] = useState<boolean>(false);
-  const key = item.id;
+  const MAX_NAME_LENGTH = 30;
   const backgroundImageStyle = (imgUrl: string) => {
     return {
       backgroundImage: `url(${imgUrl})`,
@@ -17,19 +18,39 @@ const ProductItem = ({ item }: ProductItemProps) => {
     };
   };
 
-  const onClickHandler = () => {
-    console.log(key);
+  const arrayRemove = (arr:ProductType[], value:ProductType) => {
+    return arr.filter((item:ProductType) => {
+      return item.id != value.id;
+    });
+  } 
+
+  const itemNameHandler = (text: string) => {
+    return text.slice(0, MAX_NAME_LENGTH).concat("...");
+  }
+
+  const onClickHandler = (e: React.MouseEvent) => {
+    setFavorite(!isFavorite);
+    e.preventDefault();
+    if (!isFavorite) {
+      const jsonUserData: UserAccountType = JSON.parse(localStorage.getItem('user'));
+      jsonUserData.favoriteProduct.push(item);
+      localStorage.setItem('user', JSON.stringify(jsonUserData));  
+    } else {
+      const jsonUserData: UserAccountType = JSON.parse(localStorage.getItem("user"));
+      jsonUserData.favoriteProduct = arrayRemove(jsonUserData.favoriteProduct, item);
+      localStorage.setItem('user', JSON.stringify(jsonUserData));
+    }
     // when click toggle between add and remove this item in user favorite
   }
   
   return (
     <Link to={`./product#${item.id}`}>
-      <div className="w-[256px] h-[230px] bg-accent relative shadow-xl float-left">
+      <div className="w-[256px] h-[230px] bg-accent relative shadow-xl float-left hover:scale-110 transition-all">
         <button
           onClick={onClickHandler}
-          className="z-10 absolute right-2 top-2 hover:bg-black"
+          className="z-10 absolute right-2 top-2 hover:scale-110 transition-all"
         >
-          <embed src="/icons/fav-trans-icon.svg" type="image/jpg"></embed>
+          <embed src={isFavorite? '/icons/fav-fill-icon.svg' : '/icons/fav-trans-icon.svg'} type="image/jpg"></embed>
         </button>
         <div
           className="w-full h-[154px]"
@@ -41,7 +62,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
         ></div>
         <div className="bg-white h-[76px] p-3 flex">
           <div className="font-Poppins font-medium text-base flex-grow">
-            {item.name}
+            {item.name.length > MAX_NAME_LENGTH ? itemNameHandler(item.name) : item.name}
           </div>
           <div className="flex flex-col self-end">
             <div className="font-Roboto font-medium text-base self-end">

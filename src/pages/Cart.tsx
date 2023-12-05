@@ -1,18 +1,14 @@
-import React from 'react'
 import NavigationBar from '../components/NavigationBar'
 import { UserAccountType } from '../types/UserAccountType'
 import CardList from '../components/Cart/CartList';
-import { mockUpUserData } from '../../public/data/mockUpUserData';
 import { Link } from 'react-router-dom';
 
 interface CartProps {
   user: UserAccountType;
 }
 
-// read user pendingCart data and filter it from all data
 
-
-const Cart = ({user=mockUpUserData}: CartProps) => {
+const Cart = ({user}: CartProps) => {
   return (
     <>
     <NavigationBar/>

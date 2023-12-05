@@ -1,22 +1,23 @@
 import { UserAccountType } from '../../types/UserAccountType'
 import CartItem from './CartItem';
-import CartResult from './CardResult';
+import CartResult from './CartResult';
 
 interface CartItemProps {
     user: UserAccountType
 }
 
 const CartItemList = ({user} : CartItemProps) => {
-    const {pendingCart} = user;
 
-    console.log(pendingCart)
+  let index = -1;
+
   return (
     <>
     {/* This function returns JSX */}
-    {pendingCart.map((item) => {
-      return <CartItem product={item.product} quantity={item.quantity} additionalRequest={item.additionalRequest}/>
+    {user.pendingCart.map((item) => {
+      index += 1;
+      return <CartItem index={index} user={user} product={item.product} quantity={item.quantity} additionalRequest={item.additionalRequest}/>
     })}
-    <CartResult pendingCart={pendingCart}/>
+    <CartResult pendingCart={user.pendingCart}/>
     </>
   );
 }

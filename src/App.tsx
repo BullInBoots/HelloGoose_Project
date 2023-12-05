@@ -5,9 +5,13 @@ import Category from './components/HeroCategory/Category'
 import CategoryItem from './components/HeroCategory/CategoryItem'
 import FeedBack from './components/FeedBack/FeedBack'
 import Footer from './components/Footer'
+import { mockUpUserData } from '../public/data/mockUpUserData'
 
 function App() {
 
+  //initial data setup
+  localStorage.setItem("user", JSON.stringify(mockUpUserData));
+  
   return (
     <>
       <NavigationBar />

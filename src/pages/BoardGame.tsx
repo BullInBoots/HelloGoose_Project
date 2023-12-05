@@ -10,7 +10,7 @@ const BoardGame = () => {
       <ProductApp
         listName="Board Game"
         data={mockUpProduct}
-        productCategory="clothes"
+        productCategory="boardgame"
         bannerImg='/images/banner-boardgame.png'
       />
     </>

@@ -7,17 +7,7 @@ export const mockUpUserData: UserAccountType = {
         {
             product: mockUpProduct[0],
             quantity: 1,
-            additionalRequest: 'no veggies'
-        },
-        {
-            product: mockUpProduct[0],
-            quantity: 1,
-            additionalRequest: 'no veggies'
-        },
-        {
-            product: mockUpProduct[0],
-            quantity: 1,
-            additionalRequest: 'no veggies'
+            additionalRequest: 'this is mockup data'
         },
     ],
     favoriteProduct: [],

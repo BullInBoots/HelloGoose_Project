@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { PendingProductType } from '../../types/PendingProductType'
 
 interface CartResultProps {
@@ -15,15 +16,15 @@ const CartResult = ({pendingCart}: CartResultProps) => {
       <div className='mr-8'>
         <div className="font-Roboto font-medium text-base text-right">
           <span className="mr-3">Sub-total</span>
-          {totalPrice + " ฿"}
+          {totalPrice.toFixed(2) + " ฿"}
         </div>
         <div className="font-Roboto text-sm text-black text-opacity-40">
           Tax and shipping cost will be calculated later
         </div>
       </div>
-      <button className="h-[45px] px-[44px] bg-primary font-Roboto font-medium text-white rounded-md">
+      <Link to='/details' className="h-[45px] px-[44px] flex items-center bg-primary font-Roboto font-medium text-white rounded-md">
         Check-out
-      </button>
+      </Link>
     </div>
   );
 }
