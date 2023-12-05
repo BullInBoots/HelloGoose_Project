@@ -7,7 +7,7 @@ const Clothes = () => {
   return (
     <>
       <NavigationBar />
-      <ProductApp listName="Food" data={mockUpProduct} productCategory="clothes" />
+      <ProductApp listName="Clothes" data={mockUpProduct} productCategory="clothes" bannerImg='/images/banner-clothes.png'/>
     </>
   );
 }

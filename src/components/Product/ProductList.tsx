@@ -26,9 +26,16 @@ const ProductList = ({ listName, data, productCategory }: ProductListProps) => {
       return product.category == productCategory;
     });
   }
+
+  const filterByShippingCost = (data: ProductType[]) => {
+    return data.sort((itemA: ProductType, itemB: ProductType) => {
+      return itemA.shipping_cost - itemB.shipping_cost;
+    })
+  }
   
   const [productList, setProductList] = useState<ProductType[]>(filterByCategory(data));
   const [selectSort, setSelectSort] = useState("priceLowToHigh");
+  const [isChecked, setIsChecked] = useState(false);
   
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -40,6 +47,13 @@ const ProductList = ({ listName, data, productCategory }: ProductListProps) => {
       setProductList(filterByPriceAscending(productList));
     }
   };
+
+  const checkBoxHandler = () => {
+    setIsChecked(!isChecked);
+    if (isChecked) {
+      setProductList(filterByShippingCost(productList));
+    }
+  }
   
   return (
     <>
@@ -49,15 +63,16 @@ const ProductList = ({ listName, data, productCategory }: ProductListProps) => {
             {listName} Products
           </h2>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center gap-4">
           <p className="font-Inter font-semibold text-base">
             SHOWING 8 of PRODUCT_LENGTH
           </p>
-          <button
-            className="bg-secondary text-white"
-          >
-            Free Shipping
-          </button>
+          <div className="align-middle">
+            <div className="flex items-center">
+              <label className="ms-2 mr-1 text-base">Free shipping</label>
+              <input checked={isChecked} onChange={checkBoxHandler} type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"/>
+            </div>
+          </div>
           <select onChange={onChangeHandler} id="" defaultValue={selectSort}>
             <option value="priceLowToHigh">Price : Low to High</option>
             <option value="priceHighToLow">Price : High to Low</option>

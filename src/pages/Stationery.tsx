@@ -8,9 +8,10 @@ const Stationery = () => {
     <>
       <NavigationBar />
       <ProductApp
-        listName="Food"
+        listName="Stationery"
         data={mockUpProduct}
         productCategory="stationery"
+        bannerImg='/images/banner-stationery.png'
       />
     </>
   );

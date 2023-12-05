@@ -7,7 +7,7 @@ const Food = () => {
   return (
     <>
     <NavigationBar/>
-    <ProductApp listName='Food' data={mockUpProduct} productCategory='food'/>
+    <ProductApp listName='Food' data={mockUpProduct} productCategory='food' bannerImg='/images/banner-food.png'/>
     </>
   )
 }

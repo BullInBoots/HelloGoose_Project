@@ -8,9 +8,10 @@ const BoardGame = () => {
     <>
       <NavigationBar />
       <ProductApp
-        listName="Food"
+        listName="Board Game"
         data={mockUpProduct}
         productCategory="clothes"
+        bannerImg='/images/banner-boardgame.png'
       />
     </>
   );

@@ -7,6 +7,4 @@ export interface ProductType {
     shipping_cost: number;
     description: string;
     alt_description?: string;
-    last_update: string;
-    is_available: boolean;
 }

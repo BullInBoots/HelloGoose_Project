@@ -56,7 +56,7 @@ const router = createBrowserRouter([
     element: <BoardGame/>,
   },
   {
-    path: "product",
+    path: ":category/product",
     element: <ProductDetail />
   }
 ]);

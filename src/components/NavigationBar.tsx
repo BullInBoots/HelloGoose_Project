@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import NavigationButton from './NavigationButton';
-
+import NavSearchBox from './NavSearchBox';
 const NavigationBar = () => {
     
   return (
@@ -28,10 +28,7 @@ const NavigationBar = () => {
                 <NavigationButton btnName='boardgame' linkTo='/boardgame'/>
             </div>
             <div className="flex items-center justify-between gap-8">
-                <div className='flex items-center bg-white h-8 px-2 rounded-full'>
-                    <input type="text"/>
-                    <span><embed src='/icons/search-icon.svg'></embed></span>
-                </div>
+                {/* <NavSearchBox/> */}
                 <Link to='/favorite'><embed type='image/jpg' src="/icons/heart-icon.svg"/></Link>
                 <Link to='/cart'><embed type='image/jpg' src="/icons/cart-icon.svg"/></Link>
                 <Link to='/account'><embed type='image/jpg' src="/icons/account-icon.svg"/></Link>
