@@ -7,7 +7,7 @@ export interface NavigationButtonProps {
 
 const NavigationButton = ({btnName, linkTo}: NavigationButtonProps) => {
   return (
-    <Link to={linkTo} className={"px-1 text-black font-Inter uppercase font-medium leading-9 "}>
+    <Link to={linkTo} className={"px-1 font-Poppins uppercase font-medium leading-9 "}>
       {btnName}
     </Link>
   );

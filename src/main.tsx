@@ -13,57 +13,59 @@ import Cart from './pages/Cart.tsx';
 import Account from './pages/Account.tsx';
 import BoardGame from './pages/BoardGame.tsx';
 import ProductDetail from './pages/ProductDetail.tsx';
-import ShippingDetails from './pages/ShippingDetails.tsx';
+import CheckoutDetail from './pages/CheckoutDetail.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
   },
   {
     path: "sale",
-    element: <Sale/>,
+    element: <Sale />,
   },
   {
     path: "new",
-    element: <New/>,
+    element: <New />,
   },
   {
     path: "food",
-    element: <Food/>,
+    element: <Food />,
   },
   {
     path: "stationery",
-    element: <Stationery/>,
+    element: <Stationery />,
   },
   {
     path: "clothes",
-    element: <Clothes/>,
+    element: <Clothes />,
   },
   {
     path: "favorite",
-    element: <Favorite/>,
+    element: <Favorite />,
   },
   {
     path: "cart",
-    element: <Cart user={JSON.parse(localStorage.getItem('user'))}/>,
+    element: <Cart user={JSON.parse(localStorage.getItem("user") || "{}")} />,
   },
   {
     path: "account",
-    element: <Account/>,
+    element: <Account />,
   },
   {
     path: "boardgame",
-    element: <BoardGame/>,
+    element: <BoardGame />,
   },
   {
     path: ":category/product",
-    element: <ProductDetail />
+    element: <ProductDetail />,
   },
   {
     path: "details",
-    element: <ShippingDetails/>
-  }
+    element: (
+      <CheckoutDetail user={JSON.parse(localStorage.getItem("user") || "{}")} />
+    ),
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

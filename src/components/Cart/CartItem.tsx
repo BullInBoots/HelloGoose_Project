@@ -25,7 +25,7 @@ const CartItem = ({user, index, product, quantity, additionalRequest }: CartItem
   useEffect(() => {
     user.pendingCart[index].quantity = productQuantity;
     localStorage.setItem('user', JSON.stringify(user));
-  }, [productQuantity]);
+  }, [productQuantity, user, index]);
   
   return (
     <>
@@ -45,7 +45,7 @@ const CartItem = ({user, index, product, quantity, additionalRequest }: CartItem
           </div>
           <div className="text-sm leading-3 font-Inter text-p-secondary">{additionalRequest}</div>
           {/* click to remove button */}
-          <button className="text-accent font-Roboto text-base underline mt-1">
+          <button className="text-accent font-Inter text-sm underline mt-1">
             Remove
           </button>
         </div>

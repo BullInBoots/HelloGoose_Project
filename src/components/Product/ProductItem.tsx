@@ -32,11 +32,11 @@ const ProductItem = ({ item }: ProductItemProps) => {
     setFavorite(!isFavorite);
     e.preventDefault();
     if (!isFavorite) {
-      const jsonUserData: UserAccountType = JSON.parse(localStorage.getItem('user'));
+      const jsonUserData: UserAccountType = JSON.parse(localStorage.getItem('user') || '{}');
       jsonUserData.favoriteProduct.push(item);
       localStorage.setItem('user', JSON.stringify(jsonUserData));  
     } else {
-      const jsonUserData: UserAccountType = JSON.parse(localStorage.getItem("user"));
+      const jsonUserData: UserAccountType = JSON.parse(localStorage.getItem("user") || '{}');
       jsonUserData.favoriteProduct = arrayRemove(jsonUserData.favoriteProduct, item);
       localStorage.setItem('user', JSON.stringify(jsonUserData));
     }
@@ -65,7 +65,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
             {item.name.length > MAX_NAME_LENGTH ? itemNameHandler(item.name) : item.name}
           </div>
           <div className="flex flex-col self-end">
-            <div className="font-Roboto font-medium text-base self-end">
+            <div className="font-Roboto font-medium text-sm self-end">
               {item.price}฿
             </div>
             <div className="w-fit text-black text-opacity-50 font-Inter text-[12px] self-end flex items-center gap-1">

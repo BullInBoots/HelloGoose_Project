@@ -1,6 +1,6 @@
 export const mockUpPersons = [
   {
-    rating: 4.5,
+    rating: 5,
     quote: "I love it! No more air fresheners",
     name: "Luisa",
   },

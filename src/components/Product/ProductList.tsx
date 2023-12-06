@@ -59,12 +59,12 @@ const ProductList = ({ listName, data, productCategory }: ProductListProps) => {
     <>
       <div className="flex justify-between items-center my-8">
         <div>
-          <h2 className="font-Inter font-semibold text-2xl">
+          <h2 className="font-Poppins font-semibold text-2xl">
             {listName} Products
           </h2>
         </div>
         <div className="flex items-center gap-4">
-          <p className="font-Inter font-semibold text-base">
+          <p className="font-Poppins font-semibold text-base">
             SHOWING 8 of PRODUCT_LENGTH
           </p>
           <div className="align-middle">

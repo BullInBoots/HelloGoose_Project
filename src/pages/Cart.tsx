@@ -13,9 +13,9 @@ const Cart = ({user}: CartProps) => {
     <>
     <NavigationBar/>
     <div className='my-16'>
-      <div className='w-fit text-hero font-Inter font-medium mx-auto'>Your carts items</div>
+      <div className='w-fit text-hero font-Poppins font-semibold mx-auto'>Your carts items</div>
       <div className='w-fit mx-auto mb-12'>
-        <Link to='/' className='text-lg font-Inter text-primary underline'>Back to shopping</Link>
+        <Link to='/' className='text-base font-Inter text-primary underline'>Back to shopping</Link>
       </div>
       <CardList user={user} />
     </div>
