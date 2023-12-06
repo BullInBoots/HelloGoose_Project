@@ -48,6 +48,8 @@ const CheckoutDetail = ({user}: CheckoutDetailProps) => {
               </div>
             </div>
             <InputCheckbox label='Save this information for a future fast checkout'/>
+
+            <button></button>
           </form>
         </div>
         <div>

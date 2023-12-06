@@ -1,4 +1,3 @@
-import React from 'react'
 import ProductBanner from './ProductBanner'
 import ProductList from './ProductList'
 import { ProductType } from '../../types/ProductType';
