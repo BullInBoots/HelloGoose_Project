@@ -1,4 +1,3 @@
-import React from 'react'
 import { mockUpProduct } from '../../../public/data/mockUpProduct';
 import ProductFiltered from '../Product/ProductFiltered';
 import { ProductType } from '../../types/ProductType';
