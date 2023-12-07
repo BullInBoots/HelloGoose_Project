@@ -1,32 +1,29 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from './App.tsx'
-import Sale from './pages/Sale.tsx';
-import New from './pages/New.tsx';
-import Food from './pages/Food.tsx';
-import Stationery from './pages/Stationery.tsx';
-import Clothes from './pages/Clothes.tsx';
-import Favorite from './pages/Favorite.tsx';
-import Cart from './pages/Cart.tsx';
-import Account from './pages/Account.tsx';
-import BoardGame from './pages/BoardGame.tsx';
-import ProductDetail from './pages/ProductDetail.tsx';
-import CheckoutDetail from './pages/CheckoutDetail.tsx';
+import Food from "./pages/Food.tsx";
+import Stationery from "./pages/Stationery.tsx";
+import Clothes from "./pages/Clothes.tsx";
+import Favorite from "./pages/Favorite.tsx";
+import Cart from "./pages/Cart.tsx";
+import Account from "./pages/Account.tsx";
+import BoardGame from "./pages/BoardGame.tsx";
+import ProductDetail from "./pages/ProductDetail.tsx";
+import CheckoutDetail from "./pages/CheckoutDetail.tsx";
+import Shipping from "./pages/Shipping.tsx";
+import Payment from "./pages/Payment.tsx";
+import Home from "./pages/Home.tsx";
+import Login from "./Login.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Login />,
   },
   {
-    path: "sale",
-    element: <Sale />,
-  },
-  {
-    path: "new",
-    element: <New />,
+    path: "home",
+    element: <Home />
   },
   {
     path: "food",
@@ -46,7 +43,7 @@ const router = createBrowserRouter([
   },
   {
     path: "cart",
-    element: <Cart user={JSON.parse(localStorage.getItem("user") || "{}")} />,
+    element: <Cart />,
   },
   {
     path: "account",
@@ -57,14 +54,26 @@ const router = createBrowserRouter([
     element: <BoardGame />,
   },
   {
-    path: ":category/product",
-    element: <ProductDetail />,
+    path: ":category/product/:id",
+    element: (
+      <ProductDetail user={JSON.parse(localStorage.getItem("user") || "{}")} />
+    ),
   },
   {
     path: "details",
     element: (
       <CheckoutDetail user={JSON.parse(localStorage.getItem("user") || "{}")} />
     ),
+  },
+  {
+    path: "shipping",
+    element: (
+      <Shipping user={JSON.parse(localStorage.getItem("user") || "{}")} />
+    ),
+  },
+  {
+    path: "payment",
+    element: <Payment />,
   },
 ]);
 

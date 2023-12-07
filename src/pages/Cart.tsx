@@ -3,12 +3,11 @@ import { UserAccountType } from '../types/UserAccountType'
 import CardList from '../components/Cart/CartList';
 import { Link } from 'react-router-dom';
 
-interface CartProps {
-  user: UserAccountType;
-}
 
+const Cart = () => {
+  const jsonUserData: UserAccountType = JSON.parse(localStorage.getItem('user') || '{}');
+  
 
-const Cart = ({user}: CartProps) => {
   return (
     <>
     <NavigationBar/>
@@ -17,7 +16,7 @@ const Cart = ({user}: CartProps) => {
       <div className='w-fit mx-auto mb-12'>
         <Link to='/' className='text-base font-Inter text-primary underline'>Back to shopping</Link>
       </div>
-      <CardList user={user} />
+      <CardList user={jsonUserData} />
     </div>
     </>
   )

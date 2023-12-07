@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { UserAccountType } from "../../types/UserAccountType";
 interface ProductItemProps {
   item: ProductType;
+  isOnSale?: boolean
 }
 
-const ProductItem = ({ item }: ProductItemProps) => {
+const ProductItem = ({ item, isOnSale=false }: ProductItemProps) => {
   const [isFavorite, setFavorite] = useState<boolean>(false);
   const MAX_NAME_LENGTH = 30;
   const backgroundImageStyle = (imgUrl: string) => {
@@ -44,7 +45,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
   }
   
   return (
-    <Link to={`./product#${item.id}`}>
+    <Link to={`./product/${item.id}`}>
       <div className="w-[256px] h-[230px] bg-accent relative shadow-xl float-left hover:scale-110 transition-all">
         <button
           onClick={onClickHandler}
@@ -64,9 +65,9 @@ const ProductItem = ({ item }: ProductItemProps) => {
           <div className="font-Poppins font-medium text-base flex-grow">
             {item.name.length > MAX_NAME_LENGTH ? itemNameHandler(item.name) : item.name}
           </div>
-          <div className="flex flex-col self-end">
+          <div className="flex flex-col self-end min-w-[60px]">
             <div className="font-Roboto font-medium text-sm self-end">
-              {item.price}฿
+              {isOnSale ? <span className="text-accent">{item.price} ฿</span> : <span>{item.price}</span> }
             </div>
             <div className="w-fit text-black text-opacity-50 font-Inter text-[12px] self-end flex items-center gap-1">
               <embed src="/icons/shipping-icon.svg" />

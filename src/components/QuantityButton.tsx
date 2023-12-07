@@ -8,11 +8,13 @@ interface QuantityButtonProps {
 
 const QuantityButton = ({label, count, setCount}: QuantityButtonProps) => {
     
-    const increment = () => {
+    const increment = (e: React.MouseEvent) => {
+      e.preventDefault();
         setCount(count + 1);
     }
 
-    const decrement = () => {
+    const decrement = (e: React.MouseEvent) => {
+      e.preventDefault();
         count <= 0 ? setCount(0) : setCount(count - 1);
     }
     

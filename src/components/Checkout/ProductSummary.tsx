@@ -1,5 +1,6 @@
 import { UserAccountType } from '../../types/UserAccountType'
 import ProductSummaryItem from './ProductSummaryItem';
+import ProductSummaryResult from './ProductSummaryResult';
 
 interface ProductSummaryProps {
     user: UserAccountType;
@@ -11,10 +12,10 @@ const ProductSummary = ({user}: ProductSummaryProps) => {
     });
   return (
     <>
-    {pendingProduct}
+      {pendingProduct}
+      <ProductSummaryResult user={user} />
     </>
-    
-  )
+  );
 }
 
 export default ProductSummary

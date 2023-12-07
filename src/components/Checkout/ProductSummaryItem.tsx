@@ -9,7 +9,7 @@ const ProductSummaryItem = ({item} : ProductSummaryItemProps) => {
     const {product, quantity, additionalRequest} = item;
     
   return (
-    <div className="min-w-[628px] max-h-[656px] max-w flex justify-between bg-tertiary rounded-md p-8">
+    <div className="flex justify-between mt-3">
         <div>
             <div className="font-Poppins font-semibold text-2xl">{product.name} x {quantity}</div>
             <div className="font-Inter text-sm leading-3">{additionalRequest}</div>

@@ -16,11 +16,9 @@ const NavigationBar = () => {
         {/* NavBar */}
         <nav className='flex justify-between bg-tertiary px-4 h-16'>
             <div className="flex items-center justify-between gap-12">
-                <Link to='/'>
+                <Link to='/home'>
                     <img className='w-16' src="/images/kmutt-logo.png"/>
                 </Link>
-                <NavigationButton btnName='sale' linkTo='/sale'/>
-                <NavigationButton btnName='new' linkTo='/new'/>
                 <NavigationButton btnName='food' linkTo='/food'/>
                 <NavigationButton btnName='stationery' linkTo='/stationery'/>
                 <NavigationButton btnName='clothes' linkTo='/clothes'/>
@@ -30,7 +28,7 @@ const NavigationBar = () => {
                 {/* <NavSearchBox/> */}
                 <Link to='/favorite'><embed type='image/jpg' src="/icons/heart-icon.svg"/></Link>
                 <Link to='/cart'><embed type='image/jpg' src="/icons/cart-icon.svg"/></Link>
-                <Link to='/account'><embed type='image/jpg' src="/icons/account-icon.svg"/></Link>
+                <Link to='/'><embed type='image/jpg' src="/icons/account-icon.svg"/></Link>
                 <button><img src="/images/lang-th.png" alt=""/></button>
             </div>
         </nav>

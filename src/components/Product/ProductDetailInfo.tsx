@@ -12,7 +12,7 @@ interface ProductDetailInfoProps {
 const ProductDetailInfo = ({ item, user }: ProductDetailInfoProps) => {
   const [itemCount, setItemCount] = useState(1);
   const [additionalRequest, setRequest] = useState('');
-
+  
   const backgroundImageStyle = (imgUrl: string) => {
     return {
       backgroundImage: `url(${imgUrl})`,
@@ -22,7 +22,8 @@ const ProductDetailInfo = ({ item, user }: ProductDetailInfoProps) => {
     };
   };
 
-  const sumbitHandler = () => {
+  const sumbitHandler = (e: React.MouseEvent) => {
+    e.preventDefault();
     const userPendingCart = user.pendingCart;
     userPendingCart.push({
       product: item,
