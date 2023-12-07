@@ -10,6 +10,7 @@ interface HomeItemListProps {
 
 const HomeItemList = ({header, isOnSale=false}: HomeItemListProps) => {
 
+    // Array Shuffle
     function shuffle(array: ProductType[]) {
       let currentIndex = array.length,
         randomIndex;
