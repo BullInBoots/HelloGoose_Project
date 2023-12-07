@@ -15,7 +15,7 @@ const ProductSummaryResult = ({user}: ProductSummaryResult) => {
 
   const allProductShippingPrice = user.pendingCart.map((item) => item.product.shipping_cost);
   
-  const totalShippingPrice = allProductShippingPrice.reduce((accumulator, currentValue) => accumulator + currentValue);
+  const totalShippingPrice = allProductShippingPrice.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
   
   return (
     <div>
