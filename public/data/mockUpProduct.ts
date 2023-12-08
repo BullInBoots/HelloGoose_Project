@@ -5,10 +5,10 @@ export const mockUpProduct: ProductType[] = [
   {
     id: 2,
     name: "Pad Krapow Gai",
-    price: 49.99,
+    price: 45,
     category: "food",
     image_url: "/images/2_food.jpeg",
-    shipping_cost: 4.99,
+    shipping_cost: 0,
     description:
       "Stir-fried chicken, basil leaves, garlic, chili, soy sauce, and served over steamed jasmine rice.",
     alt_description: "Include soy sauce, and fish sauce ",
@@ -16,10 +16,10 @@ export const mockUpProduct: ProductType[] = [
   {
     id: 3,
     name: "Pad Thai",
-    price: 59.99,
+    price: 50,
     category: "food",
     image_url: "/images/3_food.jpeg",
-    shipping_cost: 8.99,
+    shipping_cost: 10,
     description:
       "Stir-fried rice noodles with tofu, shrimp, eggs, bean sprouts, peanuts, and a tamarind-based sauce.",
     alt_description: "Include peanuts, shellfish, shrimp, and eggs.",
@@ -27,10 +27,10 @@ export const mockUpProduct: ProductType[] = [
   {
     id: 4,
     name: "Macarons",
-    price: 39.99,
+    price: 50,
     category: "food",
     image_url: "/images/4_food.jpeg",
-    shipping_cost: 7.99,
+    shipping_cost: 20,
     description:
       "Colorful sandwich cookies made with almond flour, egg whites, and filled with ganache, buttercream, or jam.",
     alt_description:
@@ -39,10 +39,10 @@ export const mockUpProduct: ProductType[] = [
   {
     id: 5,
     name: "Banoffee Pie",
-    price: 29.99,
+    price: 30,
     category: "food",
     image_url: "/images/5_food.jpeg",
-    shipping_cost: 5.99,
+    shipping_cost: 5,
     description:
       "A pie with a biscuit base, layers of caramel, sliced bananas, whipped cream, and chocolate shavings.",
     alt_description: "Include wheat, whipped cream, and nuts.",
@@ -50,10 +50,10 @@ export const mockUpProduct: ProductType[] = [
   {
     id: 6,
     name: "Shoyu Ramen",
-    price: 69.99,
+    price: 70,
     category: "food",
     image_url: "/images/6_food.jpeg",
-    shipping_cost: 3.99,
+    shipping_cost: 4,
     description:
       "A Japanese noodle soup featuring soy sauce-infused broth with wheat noodles and various toppings.",
     alt_description:
@@ -62,10 +62,10 @@ export const mockUpProduct: ProductType[] = [
   {
     id: 7,
     name: "Shrimp Fried Rice",
-    price: 59.99,
+    price: 60,
     category: "food",
     image_url: "/images/7_food.jpeg",
-    shipping_cost: 4.99,
+    shipping_cost: 5,
     description:
       "Stir-fried rice cooked with shrimp, vegetables, and seasonings. ",
     alt_description:
@@ -74,10 +74,10 @@ export const mockUpProduct: ProductType[] = [
   {
     id: 8,
     name: "Nam Tok Noodles",
-    price: 19.99,
+    price: 20,
     category: "food",
     image_url: "/images/8_food.jpeg",
-    shipping_cost: 3.99,
+    shipping_cost: 4,
     description:
       "A flavorful noodle soup with pork or beef, often served with bean sprouts, herbs, and spices.",
     alt_description:
@@ -88,77 +88,77 @@ export const mockUpProduct: ProductType[] = [
   {
     id: 11,
     name: "ZENITH Desk staplers 500 – Black",
-    price: 369.99,
+    price: 369,
     category: "stationery",
     image_url: "/images/11_stationery.jpeg",
-    shipping_cost: 2.99,
+    shipping_cost: 0,
     description: "Metal base and body with rubberized anti-scratch feet",
   },
   {
     id: 12,
     name: "Neo Calculator 2218T-12 Silver",
-    price: 149.99,
+    price: 149,
     category: "stationery",
     image_url: "/images/12_stationery.jpeg",
-    shipping_cost: 2.99,
+    shipping_cost: 0,
     description: "Big 12 digits LCD displaying screen",
   },
   {
     id: 13,
     name: "STAEDTLER Pastel Color Highlighter",
-    price: 19.99,
+    price: 20,
     category: "stationery",
     image_url: "/images/13_stationery.jpeg",
-    shipping_cost: 4.99,
+    shipping_cost: 0,
     description: "10 different color",
   },
   {
     id: 14,
     name: "Faber-Castell Colours Pencil",
-    price: 489.99,
+    price: 489,
     category: "stationery",
     image_url: "/images/14_stationery.jpeg",
-    shipping_cost: 3.99,
+    shipping_cost: 4,
     description:
       "48 Colour Grip colour pencils, 1 brush, 1 Grip graphite pencil, 1 sharpener",
   },
   {
     id: 15,
     name: "Pentel Eraser",
-    price: 13.99,
+    price: 14,
     category: "stationery",
     image_url: "/images/15_stationery.jpeg",
-    shipping_cost: 4.99,
+    shipping_cost: 5,
     description:
       "Delivering practically clean, residue-free erasing and leaving no stain on paper.",
   },
   {
     id: 16,
     name: "Hello Kitty Scheduling Memo Pad Set",
-    price: 259.99,
+    price: 259,
     category: "stationery",
     image_url: "/images/16_stationery.jpeg",
-    shipping_cost: 5.99,
+    shipping_cost: 5,
     description:
       "With various sections for notes, lists, or even drawings, it’s easy to stay inspired and stay on task!",
   },
   {
     id: 17,
     name: "Dual-Zippered Pencil Case",
-    price: 29.99,
+    price: 29,
     category: "stationery",
     image_url: "/images/17_stationery.jpeg",
-    shipping_cost: 3.99,
+    shipping_cost: 4,
     description:
       "Discover the perfect blend of style and organization with the Classic Dual-Zippered Pencil Case.",
   },
   {
     id: 18,
     name: "ONE Sticky Note",
-    price: 29.99,
+    price: 29,
     category: "stationery",
     image_url: "/images/18_stationery.jpeg",
-    shipping_cost: 2.99,
+    shipping_cost: 2,
     description: "Neon colours paper memo pads",
   },
   // Clothes Category
