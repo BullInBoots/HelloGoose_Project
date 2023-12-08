@@ -29,7 +29,7 @@ const NavigationBar = () => {
                 <Link to='/favorite'><embed type='image/jpg' src="/icons/heart-icon.svg"/></Link>
                 <Link to='/cart'><embed type='image/jpg' src="/icons/cart-icon.svg"/></Link>
                 <Link to='/'><embed type='image/jpg' src="/icons/account-icon.svg"/></Link>
-                <button><img src="/images/lang-th.png" alt=""/></button>
+                <button><img src="/icons/lang-en.svg" alt=""/></button>
             </div>
         </nav>
     </div>

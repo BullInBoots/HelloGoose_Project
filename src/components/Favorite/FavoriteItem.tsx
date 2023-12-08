@@ -3,15 +3,23 @@ import { ProductType } from "../../types/ProductType";
 import QuantityButton from "../QuantityButton";
 import TextInput from "../TextInput";
 import { UserAccountType } from "../../types/UserAccountType";
+import AddToCartButton from "../AddToCartButton";
+import { arrayRemove } from "../../Utils/arrayRemove";
 
 interface FavoriteItemProps {
-  product: ProductType;
+  item: ProductType;
 }
 
-const FavoriteItem = ({ product }: FavoriteItemProps) => {
+const FavoriteItem = ({ item }: FavoriteItemProps) => {
   const [isFavorite, setFavorite] = useState(true);
   const [itemCount, setItemCount] = useState(1);
   const [additionalRequest, setRequest] = useState("");
+  const [buttonStyle, setButtonStyle] = useState({
+    backgroundColor: "#e84a3b",
+    color: "#fff",
+    border: "none",
+  });
+  const [buttonText, setButtonText] = useState("+ Add to Cart");
 
   const backgroundImageStyle = (imgUrl: string) => {
     return {
@@ -22,34 +30,43 @@ const FavoriteItem = ({ product }: FavoriteItemProps) => {
     };
   };
 
-  const sumbitHandler = (e: React.MouseEvent) => {
+  const submitHandler = (e: React.MouseEvent) => {
     e.preventDefault();
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    setButtonStyle({
+      backgroundColor: "#fff",
+      color: "#e84a3b",
+      border: "2px solid #e84a3b",
+    });
+    setButtonText("Added to cart");
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
     const userPendingCart = user.pendingCart;
     userPendingCart.push({
-      product: product,
+      product: item,
       quantity: itemCount,
       additionalRequest: additionalRequest,
     });
     localStorage.setItem("user", JSON.stringify(user));
-    // TODO change button style
+    setTimeout(() => {
+      setButtonStyle({
+        backgroundColor: "#e84a3b",
+        color: "#fff",
+        border: "none",
+      });
+      setButtonText('Add to Cart');
+    }, 2000);
   };
 
-  // Remove Item From Array method
-  const arrayRemove = (arr: ProductType[], value: ProductType) => {
-    return arr.filter((item: ProductType) => {
-      return item.id != value.id;
-    });
-  };
 
   const onClickHandler = (e: React.MouseEvent) => {
     setFavorite(!isFavorite);
     e.preventDefault();
+
+    // Item isFavorite Toggle
     if (!isFavorite) {
       const jsonUserData: UserAccountType = JSON.parse(
         localStorage.getItem("user") || "{}"
       );
-      jsonUserData.favoriteProduct.push(product);
+      jsonUserData.favoriteProduct.push(item);
       localStorage.setItem("user", JSON.stringify(jsonUserData));
     } else {
       const jsonUserData: UserAccountType = JSON.parse(
@@ -57,7 +74,7 @@ const FavoriteItem = ({ product }: FavoriteItemProps) => {
       );
       jsonUserData.favoriteProduct = arrayRemove(
         jsonUserData.favoriteProduct,
-        product
+        item
       );
       localStorage.setItem("user", JSON.stringify(jsonUserData));
     }
@@ -68,8 +85,8 @@ const FavoriteItem = ({ product }: FavoriteItemProps) => {
         <div
           className="min-w-[441px] h-[334px] mr-8 relative"
           style={
-            product.image_url
-              ? backgroundImageStyle(product.image_url)
+            item.image_url
+              ? backgroundImageStyle(item.image_url)
               : { backgroundColor: "red" }
           }
         >
@@ -87,18 +104,18 @@ const FavoriteItem = ({ product }: FavoriteItemProps) => {
             ></embed>
           </button>
         </div>
-        <div>
-          <div className="flex items-center justify-between font-Poppin text-2xl font-semibold">
-            <div>{product.name}</div>
-            <div>฿ {product.price}</div>
+        <div className="flex-auto">
+          <div className="flex items-center justify-between font-Poppin text-2xl font-semibold text-util">
+            <div>{item.name}</div>
+            <div>฿ {item.price}</div>
           </div>
           <div>
-            <div>{product.description}</div>
+            <div className="text-util">{item.description}</div>
             <div className="mt-2">
-              <span className="font-Inter font-bold ">
+              <span className="font-Inter font-bold text-util">
                 Addtional Information:{" "}
               </span>
-              {product.alt_description}
+              {item.alt_description}
             </div>
           </div>
           <div>
@@ -116,14 +133,7 @@ const FavoriteItem = ({ product }: FavoriteItemProps) => {
                   setInput={setRequest}
                 />
               </div>
-              <button
-                onClick={sumbitHandler}
-                type="submit"
-                className="w-full bg-accent hover:bg-opacity-90 flex justify-center my-4 py-2 gap-1 rounded-md"
-              >
-                <embed src="/icons/add-to-cart.svg" type="image/jpg"></embed>
-                <span className="text-white font-medium">+ Add to cart</span>
-              </button>
+              <AddToCartButton submitHandler={submitHandler} buttonStyle={buttonStyle} buttonText={buttonText}/>
             </form>
           </div>
         </div>

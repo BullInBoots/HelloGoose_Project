@@ -2,6 +2,7 @@ import NavigationBar from '../components/NavigationBar'
 import { UserAccountType } from '../types/UserAccountType'
 import CardList from '../components/Cart/CartList';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 
 const Cart = () => {
@@ -18,6 +19,7 @@ const Cart = () => {
       </div>
       <CardList user={jsonUserData} />
     </div>
+    <Footer />
     </>
   )
 }

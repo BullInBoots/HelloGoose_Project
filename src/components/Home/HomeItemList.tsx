@@ -32,7 +32,7 @@ const HomeItemList = ({header, isOnSale=false}: HomeItemListProps) => {
   return (
     <div className='mt-16 pl-16 flex flex-col'>
     <div className="flex justify-between items-center max-w-[1140px]">
-        <div className="font-Poppins font-medium text-2xl">{header}</div>
+        <div className="font-Poppins font-medium text-2xl text-util">{header}</div>
         <div className="font-Inter text-base text-primary">VIEW MORE &gt;</div>
     </div>
     <div className='overflow-x-auto flex gap-16 items-center h-[300px]'>

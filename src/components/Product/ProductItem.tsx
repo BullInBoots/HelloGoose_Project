@@ -62,14 +62,14 @@ const ProductItem = ({ item, isOnSale=false }: ProductItemProps) => {
           }
         ></div>
         <div className="bg-white h-[76px] p-3 flex">
-          <div className="font-Poppins font-medium text-base flex-grow">
+          <div className="font-Poppins font-medium text-base flex-grow text-util">
             {item.name.length > MAX_NAME_LENGTH ? itemNameHandler(item.name) : item.name}
           </div>
           <div className="flex flex-col self-end min-w-[60px]">
-            <div className="font-Roboto font-medium text-sm self-end">
-              {isOnSale ? <span className="text-accent">{item.price} ฿</span> : <span>{item.price}</span> }
+            <div className="font-Roboto font-medium text-sm self-end text-util  ">
+              {isOnSale ? <span className="text-accent">{item.price} ฿</span> : <span>฿ {item.price}</span> }
             </div>
-            <div className="w-fit text-black text-opacity-50 font-Inter text-[12px] self-end flex items-center gap-1">
+            <div className="w-fit text-opacity-50 font-Inter text-[12px] text-util self-end flex items-center gap-1">
               <embed src="/icons/shipping-icon.svg" />
               <span>{ "฿" + item.shipping_cost}</span>
             </div>

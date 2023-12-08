@@ -15,6 +15,7 @@ import Shipping from "./pages/Shipping.tsx";
 import Payment from "./pages/Payment.tsx";
 import Home from "./pages/Home.tsx";
 import Login from "./Login.tsx";
+import CompletePayment from "./components/Payment/CompletePayment.tsx";
 
 const router = createBrowserRouter([
   {
@@ -56,25 +57,29 @@ const router = createBrowserRouter([
   {
     path: ":category/product/:id",
     element: (
-      <ProductDetail user={JSON.parse(localStorage.getItem("user") || "{}")} />
+      <ProductDetail  />
     ),
   },
   {
     path: "details",
     element: (
-      <CheckoutDetail user={JSON.parse(localStorage.getItem("user") || "{}")} />
+      <CheckoutDetail />
     ),
   },
   {
     path: "shipping",
     element: (
-      <Shipping user={JSON.parse(localStorage.getItem("user") || "{}")} />
+      <Shipping />
     ),
   },
   {
     path: "payment",
     element: <Payment />,
   },
+  {
+    path: "complete",
+    element: <CompletePayment />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

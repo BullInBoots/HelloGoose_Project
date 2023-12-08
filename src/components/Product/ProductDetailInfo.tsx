@@ -3,6 +3,7 @@ import QuantityButton from "../QuantityButton";
 import TextInput from "../TextInput";
 import { ProductType } from "../../types/ProductType";
 import { UserAccountType } from "../../types/UserAccountType";
+import AddToCartButton from "../AddToCartButton";
 
 interface ProductDetailInfoProps {
   item: ProductType;
@@ -12,7 +13,14 @@ interface ProductDetailInfoProps {
 const ProductDetailInfo = ({ item, user }: ProductDetailInfoProps) => {
   const [itemCount, setItemCount] = useState(1);
   const [additionalRequest, setRequest] = useState('');
-  
+  const [buttonStyle, setButtonStyle] = useState({
+    backgroundColor: '#e84a3b',
+    color: '#fff',
+    border: 'none',
+  });
+  const [buttonText, setButtonText] = useState('+ Add to Cart');
+
+  // background image must follow these rules
   const backgroundImageStyle = (imgUrl: string) => {
     return {
       backgroundImage: `url(${imgUrl})`,
@@ -22,8 +30,14 @@ const ProductDetailInfo = ({ item, user }: ProductDetailInfoProps) => {
     };
   };
 
-  const sumbitHandler = (e: React.MouseEvent) => {
+  const submitHandler = (e: React.MouseEvent) => {
     e.preventDefault();
+    setButtonStyle({
+      backgroundColor: '#fff',
+      color: '#e84a3b',
+      border: '2px solid #e84a3b',
+    });
+    setButtonText('Added to cart');
     const userPendingCart = user.pendingCart;
     userPendingCart.push({
       product: item,
@@ -32,6 +46,14 @@ const ProductDetailInfo = ({ item, user }: ProductDetailInfoProps) => {
     });
     localStorage.setItem('user', JSON.stringify(user));
     // TODO change button style
+    setTimeout(() => {
+      setButtonStyle({
+        backgroundColor: "#e84a3b",
+        color: "#fff",
+        border: "none",
+      });
+      setButtonText("Add to Cart");
+    }, 2000);
   }
 
   return (
@@ -45,20 +67,30 @@ const ProductDetailInfo = ({ item, user }: ProductDetailInfoProps) => {
               : { backgroundColor: "red" }
           }
         ></div>
-        <div className="font-Roboto font-bold text-xl uppercase text-secondary text-center mt-4">
-          🛵{" "}
-          {item.shipping_cost > 0 ? item.shipping_cost + "฿" : "FREE SHIPPING"}
-        </div>
       </div>
-      <div className="">
+      <div>
         <div>
-          <h3 className="font-Poppins font-medium text-[24px]">{item.name}</h3>
-          <h4 className="font-Inter font-medium text-[24px]">{item.price} ฿</h4>
-          <p className="mt-2 font-Inter text-base text-black text-opacity-70">
+          <div>
+            <h3 className="font-Poppins font-medium text-util text-[24px]">
+              {item.name}
+            </h3>
+          </div>
+          <div className="flex">
+            <div className="mr-3 leading-none font-Inter font-medium text-util text-[24px]">
+              ฿ {item.price}
+            </div>
+            <div className="self-end font-Inter text-util text-[12px] text-opacity-70">
+              <img className="inline" src="/icons/shipping-icon.svg" alt="" />
+              <span className="">฿{item.shipping_cost}</span>
+            </div>
+          </div>
+          <p className="mt-2 font-Inter text-base text-util text-opacity-70">
             {item.description}
           </p>
-          <p className="font-Inter text-base text-black text-opacity-70">
-            <span className="font-bold">For allergies:</span>{" "}
+          <p className="font-Inter text-base text-util text-opacity-70">
+            <span className="font-bold text-util">
+              Additional Information:{" "}
+            </span>{" "}
             {item.alt_description}
           </p>
         </div>
@@ -76,10 +108,7 @@ const ProductDetailInfo = ({ item, user }: ProductDetailInfoProps) => {
                 setInput={setRequest}
               />
             </div>
-            <button onClick={sumbitHandler} type="submit" className="w-full bg-accent hover:bg-opacity-90 flex justify-center my-8 py-2 gap-1 rounded-md">
-              <embed src="/icons/add-to-cart.svg" type="image/jpg"></embed>
-              <span className="text-white font-medium">+ Add to cart</span>
-            </button>
+            <AddToCartButton submitHandler={submitHandler} buttonStyle={buttonStyle} buttonText={buttonText}/>
           </form>
         </div>
       </div>

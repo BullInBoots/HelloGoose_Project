@@ -6,7 +6,7 @@ interface InputCheckboxProps {
 const InputCheckbox = ({label}: InputCheckboxProps) => {
   return (
     <div className="flex items-center mt-1">
-      <input type="checkbox" className="mr-2 font-Inter text-sm" />
+      <input type="checkbox" className="mr-2 font-Inter text-sm text-util" />
       <label>{label}</label>
     </div>
   );

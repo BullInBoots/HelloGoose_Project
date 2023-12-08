@@ -8,7 +8,7 @@ interface CheckoutFormHeaderProps {
 const CheckoutFormHeader = ({left, right}: CheckoutFormHeaderProps) => {
   return (
     <div className="flex justify-between items-center">
-      <div className="font-Poppins font-semibold text-2xl">{left}</div>
+      <div className="font-Poppins font-semibold text-2xl text-util">{left}</div>
       <div>{right}</div>
     </div>
   );

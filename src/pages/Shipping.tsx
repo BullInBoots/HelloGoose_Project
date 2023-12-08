@@ -1,15 +1,11 @@
-import { UserAccountType } from "../types/UserAccountType";
 import NavigationBar from "../components/NavigationBar";
 import ProductSummary from "../components/Checkout/ProductSummary";
 import CheckoutHeader from "../components/Checkout/CheckoutHeader";
 import CheckoutFormHeader from "../components/Checkout/CheckoutFormHeader";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
-interface ShippingProps {
-  user: UserAccountType;
-}
-
-const Shipping = ({ user }: ShippingProps) => {
+const Shipping = () => {
   return (
     <>
       <NavigationBar />
@@ -58,9 +54,10 @@ const Shipping = ({ user }: ShippingProps) => {
         </div>
         <div className="min-w-[628px] h-fit bg-tertiary rounded-md p-8">
           {/* Product Summary */}
-          <ProductSummary user={user} />
+          <ProductSummary />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

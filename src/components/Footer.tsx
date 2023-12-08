@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="bg-primary text-white px-24 pb-12 font-Inter">
+    <div className="bg-gradient-to-t from-util to-primary text-white px-24 pb-12 font-Inter">
       <div className="pt-10">
         <div className="float-left">
           <h1 className="uppercase font-semibold pb-8">modmee</h1>

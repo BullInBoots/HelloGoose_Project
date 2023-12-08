@@ -14,11 +14,11 @@ const CartResult = ({pendingCart}: CartResultProps) => {
     <div className="max-w-[1140px] mx-auto flex justify-end items-center">
       {/* checkout button */}
       <div className='mr-8'>
-        <div className="font-Roboto font-medium text-base text-right">
+        <div className="font-Roboto font-medium text-base text-util text-right">
           <span className="mr-3">Sub-total</span>
-          {totalPrice.toFixed(2) + " ฿"}
+          {"฿ " + totalPrice.toFixed(2)}
         </div>
-        <div className="font-Roboto text-sm text-black text-opacity-40">
+        <div className="font-Roboto text-sm text-util text-opacity-40">
           Tax and shipping cost will be calculated later
         </div>
       </div>

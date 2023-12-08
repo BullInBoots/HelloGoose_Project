@@ -1,19 +1,16 @@
-import { UserAccountType } from '../../types/UserAccountType'
+import { PendingProductType } from '../../types/PendingProductType';
 import ProductSummaryItem from './ProductSummaryItem';
 import ProductSummaryResult from './ProductSummaryResult';
 
-interface ProductSummaryProps {
-    user: UserAccountType;
-}
-
-const ProductSummary = ({user}: ProductSummaryProps) => {
-    const pendingProduct = user.pendingCart.map((item) => {
-      return <ProductSummaryItem item={item} />;
+const ProductSummary = () => {
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+    const pendingProduct = user.pendingCart.map((item:PendingProductType) => {
+      return <ProductSummaryItem key={item.product.id} item={item} />;
     });
   return (
     <>
       {pendingProduct}
-      <ProductSummaryResult user={user} />
+      <ProductSummaryResult  />
     </>
   );
 }

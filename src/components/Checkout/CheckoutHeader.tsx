@@ -7,7 +7,7 @@ const CheckoutHeader = ({label, atStep}: CheckoutHeaderProps) => {
   return (
     <div className=''>
     
-    <div className="font-Inter font-semibold text-base">{label}</div>
+    <div className="font-Inter font-semibold text-base text-util">{label}</div>
     <hr className="border-none h-[2px] bg-primary my-2" />
     <ul className='flex'>
         <li className='flex items-center font-Inter font-semibold text-sm mr-2'>

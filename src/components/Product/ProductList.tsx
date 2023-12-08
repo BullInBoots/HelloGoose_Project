@@ -50,9 +50,9 @@ const ProductList = ({ listName, data, productCategory }: ProductListProps) => {
 
   const checkBoxHandler = () => {
     setIsChecked(!isChecked);
-    if (isChecked) {
+    if (!isChecked) {
       setProductList(filterByShippingCost(productList));
-    }
+    } 
   }
   
   return (
@@ -65,16 +65,26 @@ const ProductList = ({ listName, data, productCategory }: ProductListProps) => {
         </div>
         <div className="flex items-center gap-4">
           <p className="font-Poppins font-semibold text-base">
-            SHOWING 8 of PRODUCT_LENGTH
+            SHOWING 8 of {data.length}
           </p>
           <div className="align-middle">
-            <div className="flex items-center">
-              <label className="ms-2 mr-1 text-base">Free shipping</label>
-              <input checked={isChecked} onChange={checkBoxHandler} type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"/>
+            <div className="flex items-center bg-tertiary px-2 rounded-md">
+              <label className="ms-2 mr-1 text-base p-1">Free shipping</label>
+              <input
+                checked={isChecked}
+                onChange={checkBoxHandler}
+                type="checkbox"
+                value=""
+                className="accent-secondary w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+              />
             </div>
           </div>
-          <select onChange={onChangeHandler} id="" defaultValue={selectSort}>
-            <option value="priceLowToHigh">Price : Low to High</option>
+          <select
+            onChange={onChangeHandler}
+            defaultValue={selectSort}
+            className="rounded-md bg-tertiary p-1"
+          >
+            <option value="priceLowToHigh" className="hover:bg-secondary">Price : Low to High</option>
             <option value="priceHighToLow">Price : High to Low</option>
           </select>
         </div>

@@ -10,12 +10,16 @@ const QuantityButton = ({label, count, setCount}: QuantityButtonProps) => {
     
     const increment = (e: React.MouseEvent) => {
       e.preventDefault();
+      if (count != null || undefined) {
         setCount(count + 1);
+      }
     }
 
     const decrement = (e: React.MouseEvent) => {
       e.preventDefault();
+      if (count != null || undefined) {
         count <= 0 ? setCount(0) : setCount(count - 1);
+      }
     }
     
   return (

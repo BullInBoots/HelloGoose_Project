@@ -1,17 +1,13 @@
 import NavigationBar from '../components/NavigationBar'
-import { UserAccountType } from '../types/UserAccountType'
 import CheckoutHeader from '../components/Checkout/CheckoutHeader';
 import ProductSummary from '../components/Checkout/ProductSummary';
 import CheckoutFormHeader from '../components/Checkout/CheckoutFormHeader';
 import InputText from '../components/Checkout/InputText';
 import InputCheckbox from '../components/Checkout/InputCheckbox';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
-interface CheckoutDetailProps {
-  user: UserAccountType;
-}
-
-const CheckoutDetail = ({user}: CheckoutDetailProps) => {
+const CheckoutDetail = () => {
 
   return (
     <>
@@ -58,9 +54,10 @@ const CheckoutDetail = ({user}: CheckoutDetailProps) => {
         </div>
         <div className="min-w-[628px] h-fit bg-tertiary rounded-md p-8">
           {/* Product Summary */}
-          <ProductSummary user={user} />
+          <ProductSummary />
         </div>
       </div>
+      <Footer />
     </>
   );
 }

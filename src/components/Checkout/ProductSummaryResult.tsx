@@ -1,11 +1,10 @@
 import { UserAccountType } from '../../types/UserAccountType'
 import InputText from './InputText'
 
-interface ProductSummaryResult {
-    user: UserAccountType
-}
 
-const ProductSummaryResult = ({user}: ProductSummaryResult) => {
+const ProductSummaryResult = () => {
+  const user: UserAccountType = JSON.parse(localStorage.getItem('user') || '{}');
+  console.log(user);
   const productPriceList = user.pendingCart.map(
     (item) => item.product.price * item.quantity
   );
@@ -27,21 +26,19 @@ const ProductSummaryResult = ({user}: ProductSummaryResult) => {
       </div>
       <hr className="mt-7" />
       <div className="flex justify-between my-3">
-        <div className="font-Inter">Subtotal</div>
-        <div className="font-Inter">฿ {totalPrice}</div>
+        <div className="font-Inter text-util">Subtotal</div>
+        <div className="font-Inter text-util">฿ {totalPrice.toFixed(2)}</div>
       </div>
       <hr />
       <div className="flex justify-between my-3">
-        <div className="font-Inter">Shipping</div>
-        <div className="font-Inter text-primary">
-          ฿ {totalShippingPrice}
-        </div>
+        <div className="font-Inter text-util">Shipping</div>
+        <div className="font-Inter text-primary">฿ {totalShippingPrice.toFixed(2)}</div>
       </div>
       <hr />
       <div className="flex justify-between mt-6">
-        <div className="font-Inter font-medium">Total</div>
+        <div className="font-Inter font-medium text-util">Total</div>
         <div className="font-Inter font-medium text-primary">
-          ฿ {totalShippingPrice + totalPrice}
+          ฿ {(totalShippingPrice + totalPrice).toFixed(2)}
         </div>
       </div>
     </div>

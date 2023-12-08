@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import HomeItemList from "../components/Home/HomeItemList";
 import NavigationBar from "../components/NavigationBar";
 
@@ -53,6 +54,9 @@ const Home = () => {
 
       <HomeItemList header="SALE" isOnSale={true} />
       <HomeItemList header="NEW" />
+      <div className="mt-6">
+        <Footer />
+      </div>
     </>
   );
 };
