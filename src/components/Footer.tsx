@@ -61,10 +61,10 @@ const Footer = () => {
                   <img src="/icons/instagram.svg" alt="logo" />
                 </li>
                 <li>
-                  <img src="/public/icons/facebook.svg" alt="logo" />
+                  <img src="/icons/facebook.svg" alt="logo" />
                 </li>
                 <li>
-                  <img src="/public/icons/chat-logo.svg" alt="logo" />
+                  <img src="/icons/chat-logo.svg" alt="logo" />
                 </li>
               </ul>
             </div>
