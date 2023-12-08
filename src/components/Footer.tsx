@@ -58,13 +58,13 @@ const Footer = () => {
             <div>
               <ul className="flex justify-between w-1/3">
                 <li>
-                  <img src="../../public/icons/instagram.svg" alt="logo" />
+                  <img src="/icons/instagram.svg" alt="logo" />
                 </li>
                 <li>
-                  <img src="../../public/icons/facebook.svg" alt="logo" />
+                  <img src="/public/icons/facebook.svg" alt="logo" />
                 </li>
                 <li>
-                  <img src="../../public/icons/chat-logo.svg" alt="logo" />
+                  <img src="/public/icons/chat-logo.svg" alt="logo" />
                 </li>
               </ul>
             </div>
