@@ -7,7 +7,6 @@ import Stationery from "./pages/Stationery.tsx";
 import Clothes from "./pages/Clothes.tsx";
 import Favorite from "./pages/Favorite.tsx";
 import Cart from "./pages/Cart.tsx";
-import Account from "./pages/Account.tsx";
 import BoardGame from "./pages/BoardGame.tsx";
 import ProductDetail from "./pages/ProductDetail.tsx";
 import CheckoutDetail from "./pages/CheckoutDetail.tsx";
