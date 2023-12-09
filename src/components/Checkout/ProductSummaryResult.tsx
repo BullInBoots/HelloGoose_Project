@@ -4,7 +4,6 @@ import InputText from './InputText'
 
 const ProductSummaryResult = () => {
   const user: UserAccountType = JSON.parse(localStorage.getItem('user') || '{}');
-  console.log(user);
   const productPriceList = user.pendingCart.map(
     (item) => item.product.price * item.quantity
   );
